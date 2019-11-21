@@ -22,7 +22,7 @@ pip install -e .
 ```bash
 roscore
 rosrun sokoban server.py
-roslaunch search maze.launch
+roslaunch sokoban maze.launch
 ```
 3. To change Robot initial position, Check configuration in  launch/maze.launch file
 4. To change Room generation, change Random seed in sokoban/scripts/room_utils line 70
