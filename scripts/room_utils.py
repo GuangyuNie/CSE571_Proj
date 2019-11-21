@@ -2,8 +2,19 @@ import random
 import numpy as np
 import marshal
 
-
-def generate_room(dim=(13, 13), p_change_directions=0.35, num_steps=25, num_boxes=3, tries=4, second_player=False):
+color_list = [(1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0), (1.0, 0.1725490196078432, 0.5562), (1.0, 0.9254901960784314, 0.8980392156862745), 
+				(0.6340, 0.9490196078431372, 0.6780392156862745), (1.0, 0.5764705882352941, 0.3980392156862745), (1.0, 1.0, 0.8980392156862745), 
+				(0.9764705882352941, 1.0, 0.8980392156862745), (0.9490196078431372, 1.0, 0.8980392156862745), (0.9254901960784314, 1.0, 0.8980392156862745), 
+				(0.8980392156862745, 1.0, 0.8980392156862745), (0.8980392156862745, 1.0, 0.9254901960784314), (0.8980392156862745, 0.9490196078431372, 1.0), 
+				(0.8980392156862745, 0.9254901960784314, 1.0), (0.8980392156862745, 0.8980392156862745, 1.0), (1.0, 0.8980392156862745, 0.8980392156862745), 
+				(1.0, 0.8980392156862745, 1.0), (1.0, 0.9019607843137255, 0.9490196078431372), (1.0, 0.8980392156862745, 0.9254901960784314)]
+subject_list = ["Operating Systems Architecture","Artificial Intelligence","Information Security",
+				"Computer Networks I","Computer Graphics","Cloud Computing",
+				"The Software Process","Reasoning About Programs","Mobile Computing","Advanced Database Systems",
+				"Web Information Systems","Cloud Computing","Computer Systems Principles and Programming","Human Computer Interaction",
+				"Design Computing","Relational Database Systems","Algorithms and Data Structures","Programming in the Large",
+				"Introduction to Computer Systems"] 
+def generate_room(dim=(10, 10), p_change_directions=0.35, num_steps=25, num_boxes=3, tries=4, second_player=False):
     """
     Generates a Sokoban room, represented by an integer matrix. The elements are encoded as follows:
     wall = 0
@@ -56,8 +67,8 @@ def room_topology_generation(dim=(10, 10), p_change_directions=0.35, num_steps=1
     :param num_steps:
     :return:
     """
-    random.seed(2002)
-    np.random.seed(seed=2002)
+    random.seed(2008)
+    np.random.seed(seed=2008)
     dim_x, dim_y = dim
     # The ones in the mask represent all fields which will be set to floors
     # during the random walk. The centered one will be placed over the current
@@ -199,7 +210,6 @@ def reverse_playing(room_state, room_structure, search_depth=100):
     best_room_score = -1
     best_box_mapping = box_mapping
     depth_first_search(room_state, room_structure, box_mapping, box_swaps=0, last_pull=(-1, -1), ttl=300)
-
     return best_room, best_room_score, best_box_mapping
 
 
