@@ -89,8 +89,8 @@ for i in range(1, 100001):
             # Sleep makes the actions visible for users
             time.sleep(0.5)
             state, reward, done, info = env.step(action)
-            print(state)
-            #print(ACTION_LOOKUP[action], reward, done, info)
+            #print(state)
+            print(ACTION_LOOKUP[action], reward, done, info)
             if done:
                 print("Episode finished after {} timesteps".format(t+1))
                 env.render()
