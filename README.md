@@ -16,7 +16,7 @@ pip install -e .
 
 ## 2 Environment
 
-1. Put Sokoban folder into file:///home/cse-571/catkin_ws/src 
+1. Put Sokoban folder into file:///home/catkin_ws/src 
 2. Run 
 
 ```bash
