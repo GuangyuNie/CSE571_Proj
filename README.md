@@ -1,4 +1,4 @@
-# CSE571_Proj
+# Sokoban Q learning
 
 ## 1 Installation
 
